@@ -1,8 +1,8 @@
 {
-    "name": "icaro",
+    "name": "icaro/api",
     "type": "project",
     "description": "Api icaro",
-    "homepage": "",
+    "homepage": "https://icaro.herokuapp.com/",
     "license": "MIT",
     "require": {
         "php": "^7.4 || ^8.0",
