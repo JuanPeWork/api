@@ -32,10 +32,10 @@ class Database extends Config
      */
     public $default = [
         'DSN'      => getenv('CLEARDB_ORANGE_URL'),
-        'hostname' => 'localhost',
-        'username' => '',
-        'password' => '',
-        'database' => '',
+        'hostname' => getenv('DB_HOST'),
+        'username' => getenv('DB_USER'),
+        'password' => getenv('DB_PASSWORD'),
+        'database' => getenv('DB_DATABASE'),
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,
