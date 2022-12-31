@@ -31,7 +31,7 @@ class Database extends Config
      * @var array
      */
     public $default = [
-        'DSN'      => '',
+        'DSN'      => getenv('CLEARDB_ORANGE_URL'),
         'hostname' => getenv('HOSTNAME'),
         'username' => getenv('USER_DB'),
         'password' => getenv('PASSWORD_DB'),
