@@ -16,6 +16,8 @@
     },
     "scripts": {
         "post-install-cmd": [
+            "chmod -R 777 writable/cache",
+            "chmod -R 777 writable/logs",
             "chmod -R 777 public/"
         ]
     }
