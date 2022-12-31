@@ -13,5 +13,10 @@
         "kint-php/kint": "^4.2",
         "laminas/laminas-escaper": "^2.9",
         "psr/log": "^1.1"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "chmod -R 777 public/"
+        ]
     }
 }
