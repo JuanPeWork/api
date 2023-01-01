@@ -3,8 +3,6 @@
 namespace Config;
 
 use CodeIgniter\Database\Config;
-use Config\App;
-$config = new App();
 
 /**
  * Database Configuration
@@ -34,10 +32,10 @@ class Database extends Config
      */
     public $default = [
         'DSN'      => '',
-        'hostname' => $config->DB_DATABASE,
-        'username' => $config->DB_HOST,
-        'password' => $config->DB_PASSWORD,
-        'database' => $config->DB_USER,
+        'hostname' => '',
+        'username' => '',
+        'password' => '',
+        'database' =>  '',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,

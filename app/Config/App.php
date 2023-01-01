@@ -4,10 +4,7 @@ namespace Config;
 
 use CodeIgniter\Config\BaseConfig;
 use CodeIgniter\Session\Handlers\FileHandler;
-use Dotenv\Dotenv;
 
-$dotenv = Dotenv::createImmutable(FCPATH);
-$dotenv->load();
 
 class App extends BaseConfig
 {
@@ -467,13 +464,4 @@ class App extends BaseConfig
      * @var bool
      */
     public $CSPEnabled = false;
-
-
-    public $DB_DATABASE = getenv('DB_DATABASE');
-    public $DB_HOST = getenv('DB_HOST');
-    public $DB_PASSWORD = getenv('DB_PASSWORD');
-    public $DB_USER = getenv('DB_USER');
-
-
-
 }
