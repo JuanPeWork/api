@@ -25,7 +25,6 @@ class Database extends Config
      */
     public $defaultGroup = 'default';
 
-    public $url = parse_url(getenv('CLEARDB_ORANGE_URL'));
     /**
      * The default database connection.
      *
@@ -33,10 +32,10 @@ class Database extends Config
      */
     public $default = [
         'DSN'      => '',
-        'hostname' => $url["host"],
-        'username' => $url["user"],
-        'password' => $url["pass"],
-        'database' => substr($url["path"], 1),
+        'hostname' => getenv('DB_HOST'),
+        'username' => getenv('DB_USER'),
+        'password' => getenv('DB_PASSWORD'),
+        'database' => getenv('DB_DATABASE'),
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,
