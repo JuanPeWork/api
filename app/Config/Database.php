@@ -31,11 +31,11 @@ class Database extends Config
      * @var array
      */
     public $default = [
-        'DSN'      => getenv('CLEARDB_ORANGE_URL'),
-        'hostname' => getenv('DB_HOST'),
-        'username' => getenv('DB_USER'),
-        'password' => getenv('DB_PASSWORD'),
-        'database' => getenv('DB_DATABASE'),
+        'DSN'      => env('CLEARDB_ORANGE_URL'),
+        'hostname' => env('DB_HOST'),
+        'username' => env('DB_USER'),
+        'password' => env('DB_PASSWORD'),
+        'database' => env('DB_DATABASE'),
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,
