@@ -24,10 +24,10 @@ class Database extends Config
      * @var string
      */
     public $defaultGroup = 'default';
-    public $DB_HOST = $_ENV['DB_HOST'];
-    public $DB_USER = $_ENV['DB_USER'];
-    public $DB_PASSWORD = $_ENV['DB_PASSWORD'];
-    public $DB_DATABASE = $_ENV['DB_DATABASE'];
+    public $DB_HOST = env('DB_HOST');
+    public $DB_USER = env('DB_USER');
+    public $DB_PASSWORD = env('DB_PASSWORD');
+    public $DB_DATABASE = env('DB_DATABASE');
 
     /**
      * The default database connection.
