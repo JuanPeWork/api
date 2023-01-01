@@ -24,6 +24,10 @@ class Database extends Config
      * @var string
      */
     public $defaultGroup = 'default';
+    public $DB_HOST = $_ENV['DB_HOST'];
+    public $DB_USER = $_ENV['DB_USER'];
+    public $DB_PASSWORD = $_ENV['DB_PASSWORD'];
+    public $DB_DATABASE = $_ENV['DB_DATABASE'];
 
     /**
      * The default database connection.
@@ -32,10 +36,10 @@ class Database extends Config
      */
     public $default = [
         'DSN'      => '',
-        'hostname' => $_ENV['DB_HOST'],
-        'username' => $_ENV['DB_USER'],
-        'password' => $_ENV['DB_PASSWORD'],
-        'database' =>  $_ENV['DB_DATABASE'],
+        'hostname' => $DB_HOST,
+        'username' => $DB_USER,
+        'password' => $DB_PASSWORD,
+        'database' =>  $DB_DATABASE,
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,
