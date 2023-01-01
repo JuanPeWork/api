@@ -1,7 +1,6 @@
 <?php
 
 namespace Config;
-global $_ENV;
 
 use CodeIgniter\Database\Config;
 
@@ -33,10 +32,10 @@ class Database extends Config
      */
     public $default = [
         'DSN'      => '',
-        'hostname' => getenv('DB_HOST'),
-        'username' => getenv('DB_USER'),
-        'password' => getenv('DB_PASSWORD'),
-        'database' => getenv('DB_DATABASE'),
+        'hostname' => '',
+        'username' => '',
+        'password' => '',
+        'database' =>  '',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,
