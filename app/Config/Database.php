@@ -1,6 +1,7 @@
 <?php
 
 namespace Config;
+global $_SERVER;
 
 use CodeIgniter\Database\Config;
 
@@ -32,10 +33,10 @@ class Database extends Config
      */
     public $default = [
         'DSN'      => '',
-        'hostname' => '',
-        'username' => '',
-        'password' => '',
-        'database' =>  '',
+        'hostname' => $_SERVER['DB_HOST'],
+        'username' => $_SERVER['DB_USER'],
+        'password' => $_SERVER['DB_PASSWORD'],
+        'database' =>  $_SERVER['DB_DATABASE'],
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,
