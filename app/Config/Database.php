@@ -1,7 +1,6 @@
 <?php
 
 namespace Config;
-global $_SERVER;
 
 use CodeIgniter\Database\Config;
 
@@ -33,10 +32,10 @@ class Database extends Config
      */
     public $default = [
         'DSN'      => '',
-        'hostname' => $_SERVER['DB_HOST'],
-        'username' => $_SERVER['DB_USER'],
-        'password' => $_SERVER['DB_PASSWORD'],
-        'database' =>  $_SERVER['DB_DATABASE'],
+        'hostname' => '',
+        'username' => '',
+        'password' => '',
+        'database' =>  '',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,
@@ -88,5 +87,10 @@ class Database extends Config
         if (ENVIRONMENT === 'testing') {
             $this->defaultGroup = 'tests';
         }
+
+        $this->default['hostname'] = getenv('DB_DATABASE');
+        $this->default['username'] = getenv('DB_HOST');
+        $this->default['password'] = getenv('DB_PASSWORD');
+        $this->default['database'] =  getenv('DB_USER');
     }
 }
