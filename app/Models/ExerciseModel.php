@@ -20,20 +20,6 @@ class ExerciseModel extends Model {
         return $this->db->table($this->table)->get()->getResult();
     }
 
-    public function getExercise($id) {
-        return $this->db->table($this->table)->getWhere([$this->primaryKey => $id])->getRow();
-    }
 
-    public function insertExercise($data) {
-        return $this->db->table($this->table)->insert($data);
-    }
-
-    public function updateExercise($id, $data) {
-        return $this->db->table($this->table)->update($data, [$this->primaryKey => $id]);
-    }
-
-    public function deleteExercise($id) {
-        return $this->db->table($this->table)->delete([$this->primaryKey => $id]);
-    }
 
 }

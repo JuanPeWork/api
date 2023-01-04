@@ -5,7 +5,7 @@ use CodeIgniter\RESTful\ResourceController;
 use CodeIgniter\API\ResponseTrait;
 use App\Models\ExerciseModel;
 
-class Products extends ResourceController
+class Exercise extends ResourceController
 {
     use ResponseTrait;
     // get all product
