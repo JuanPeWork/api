@@ -12,7 +12,7 @@ class Products extends ResourceController
     public function index()
     {
         $model = new ExerciseModel();
-        $data = $model->findAll();
+        $data = $model->getExercises();
         return $this->respond($data, 200);
     }
  
