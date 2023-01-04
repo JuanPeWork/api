@@ -11,9 +11,9 @@ class ExerciseModel extends Model {
 
     public function __construct(){
 		parent ::__construct();
-        $this->load->library('json');
+        // $this->load->library('json');
 		$this->load->database();
-        $this->load->helper('url');
+        // $this->load->helper('url');
     }
 
     public function getExercises() {
