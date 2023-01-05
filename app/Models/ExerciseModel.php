@@ -12,7 +12,7 @@ class ExerciseModel extends Model {
     public function __construct(){
 		parent ::__construct();
         // $this->load->library('json');
-		$this->load->database();
+		//$this->load->database();
         // $this->load->helper('url');
     }
 
