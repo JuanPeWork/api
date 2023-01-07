@@ -4,20 +4,20 @@ namespace App\Controllers;
 
 use CodeIgniter\RESTful\ResourceController;
 use CodeIgniter\API\ResponseTrait;
-use App\Models\ExerciseModel;
+use App\Models\TrainingSessionModel;
 
-class Exercise extends ResourceController {
+class TrainingSession extends ResourceController {
     use ResponseTrait;
 
     public function index() {
-        $model = new ExerciseModel();
-        $data = $model->getExercises();
+        $model = new TrainingSessionModel();
+        $data = $model->getTrainingSessions();
         return $this->respond($data, 200);
     }
 
     public function show($id = null) {
-        $model = new ExerciseModel();
-        $data = $model->getExercise($id);
+        $model = new TrainingSessionModel();
+        $data = $model->getTrainingSession($id);
         if ($data) {
             return $this->respond($data);
         } else {
@@ -26,15 +26,13 @@ class Exercise extends ResourceController {
     }
 
     public function create() {
-        $model = new ExerciseModel();
+        $model = new TrainingSessionModel();
         $data = [
-            'training_session_id' => $this->request->getPost('training_session_id'),
-            'name' => $this->request->getPost('name'),
-            'sets' => $this->request->getPost('sets'),
-            'repts' => $this->request->getPost('repts'),
-            'weight' => $this->request->getPost('weight')
+            'workout_id' => $this->request->getPost('workout_id'),
+            'day' => $this->request->getPost('day'),
+            'name' => $this->request->getPost('name')
         ];
-        $model->insertExercise($data);
+        $model->insertTrainingSession($data);
         $response = [
             'status'   => 201,
             'error'    => null,
@@ -46,28 +44,25 @@ class Exercise extends ResourceController {
         return $this->respondCreated($data, 201);
     }
 
-    public function update($id = null) {
-        $model = new ExerciseModel();
+    public function update($id = null)
+    {
+        $model = new TrainingSessionModel();
         $json = $this->request->getJSON();
         if ($json) {
             $data = [
-                'training_session_id' => $json->training_session_id,
-                'name' => $json->name,
-                'sets' => $json->sets,
-                'repts' => $json->repts,
-                'weight' => $json->weight
+                'workout_id' => $json->workout_id,
+                'day' => $json->day,
+                'name' => $json->name
             ];
         } else {
             $input = $this->request->getRawInput();
             $data = [
-                'training_session_id' => $input['training_session_id'],
-                'name' => $input['name'],
-                'sets' => $input['sets'],
-                'repts' => $input['repts'],
-                'weight' => $input['weight']
+                'workout_id' => $input['workout_id'],
+                'day' => $input['day'],
+                'name' => $input['name']
             ];
         }
-        $model->updateExercise($id, $data);
+        $model->updateTrainingSession($id, $data);
         $response = [
             'status'   => 200,
             'error'    => null,
@@ -78,11 +73,12 @@ class Exercise extends ResourceController {
         return $this->respond($response);
     }
 
-    public function delete($id = null) {
-        $model = new ExerciseModel();
-        $data = $model->getExercise($id);
+    public function delete($id = null)
+    {
+        $model = new TrainingSessionModel();
+        $data = $model->getTrainingSession($id);
         if ($data) {
-            $model->deleteExercise($id);
+            $model->deleteTrainingSession($id);
             $response = [
                 'status'   => 200,
                 'error'    => null,
