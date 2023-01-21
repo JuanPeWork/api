@@ -58,7 +58,7 @@ $routes->put('training-session/(:id)', 'TrainingSession::update/$1');
 $routes->delete('training-session/(:id)', 'TrainingSession::delete/$1');
 
 $routes->get('exercise', 'Exercise::index');
-$routes->get('exercise/(:id)', 'Exercise::show/$1');
+$routes->get('exercise/(:num)', 'Exercise::show/$1');
 
 $routes->post('exercise', 'Exercise::create');
 $routes->put('exercise/(:id)', 'Exercise::update/$1');
