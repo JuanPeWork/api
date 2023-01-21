@@ -38,31 +38,31 @@ $routes->set404Override();
 $routes->get('/', 'Home::index');
 
 $routes->get('workout', 'Workout::index');
-$routes->get('workout/(:num)', 'Workout::show/$1');
+$routes->get('workout/(:id)', 'Workout::show/$1');
 $routes->post('workout', 'Workout::create');
-$routes->put('workout/(:id)', 'Workout::update/$1');
-$routes->delete('workout/(:id)', 'Workout::delete/$1');
+$routes->put('workout/(:value)', 'Workout::update/$1');
+$routes->delete('workout/(:value)', 'Workout::delete/$1');
 
 $routes->get('workout-type', 'WorkoutType::index');
-$routes->get('workout-type/(:id)', 'WorkoutType::show/$1');
+$routes->get('workout-type/(:value)', 'WorkoutType::show/$1');
 $routes->post('workout-type', 'WorkoutType::create');
-$routes->put('workout-type/(:id)', 'WorkoutType::update/$1');
-$routes->delete('workout-type/(:id)', 'WorkoutType::delete/$1');
+$routes->put('workout-type/(:value)', 'WorkoutType::update/$1');
+$routes->delete('workout-type/(:value)', 'WorkoutType::delete/$1');
 
 $routes->get('training-session', 'TrainingSession::index');
-$routes->get('training-session/(:id)', 'TrainingSession::show/$1');
-$routes->get('training-session/workout/(:id)', 'TrainingSession::getByWorkoutId/$1');
+$routes->get('training-session/(:value)', 'TrainingSession::show/$1');
+$routes->get('training-session/workout/(:value)', 'TrainingSession::getByWorkoutId/$1');
 
 $routes->post('training-session', 'TrainingSession::create');
-$routes->put('training-session/(:id)', 'TrainingSession::update/$1');
-$routes->delete('training-session/(:id)', 'TrainingSession::delete/$1');
+$routes->put('training-session/(:value)', 'TrainingSession::update/$1');
+$routes->delete('training-session/(:value)', 'TrainingSession::delete/$1');
 
 $routes->get('exercise', 'Exercise::index');
 $routes->get('exercise/(:num)', 'Exercise::show/$1');
 
 $routes->post('exercise', 'Exercise::create');
-$routes->put('exercise/(:id)', 'Exercise::update/$1');
-$routes->delete('exercise/(:id)', 'Exercise::delete/$1');
+$routes->put('exercise/(:value)', 'Exercise::update/$1');
+$routes->delete('exercise/(:value)', 'Exercise::delete/$1');
 
 /*
  * --------------------------------------------------------------------
