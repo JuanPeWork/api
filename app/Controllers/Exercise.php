@@ -25,6 +25,16 @@ class Exercise extends ResourceController {
         }
     }
 
+    public function getExercisesByTrainingSessionId($training_session_id) {
+        $model = new ExerciseModel();
+        $data = $model->getExercisesByTrainingSessionId($training_session_id);
+        if ($data) {
+            return $this->respond($data);
+        } else {
+            return $this->failNotFound('No Data Found with training_session_id ' . $training_session_id);
+        }
+    }
+
     public function create() {
         $model = new ExerciseModel();
         $data = [

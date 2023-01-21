@@ -37,12 +37,11 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
-
 $routes->get('/workout', 'Workout::index');
 $routes->get('/workout/(:id)', 'Workout::show/$1');
-$routes->post('workout', 'Workout::create');
-$routes->put('workout/(:id)', 'Workout::update/$1');
-$routes->delete('workout/(:id)', 'Workout::delete/$1');
+$routes->post('/workout', 'Workout::create');
+$routes->put('/workout/(:id)', 'Workout::update/$1');
+$routes->delete('/workout/(:id)', 'Workout::delete/$1');
 
 $routes->get('/workout-type', 'WorkoutType::index');
 $routes->get('/workout-type/(:id)', 'WorkoutType::show/$1');
@@ -60,7 +59,7 @@ $routes->delete('/training-session/(:id)', 'TrainingSession::delete/$1');
 
 $routes->get('/exercise', 'Exercise::index');
 $routes->get('/exercise/(:id)', 'Exercise::show/$1');
-$routes->get('exercise/training-session/(:id)', 'Exercise::getExercisesByTrainingSessionId/$1');
+$routes->get('/exercise/training-session/(:id)', 'Exercise::getExercisesByTrainingSessionId/$1');
 $routes->post('/exercise', 'Exercise::create');
 $routes->put('/exercise/(:id)', 'Exercise::update/$1');
 $routes->delete('/exercise/(:id)', 'Exercise::delete/$1');
