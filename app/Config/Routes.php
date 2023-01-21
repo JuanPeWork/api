@@ -37,34 +37,32 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
-$routes->get('/workout', 'Workout::index');
-// $routes->get('/workout/(:id)', 'Workout::show/$1');
+$routes->get('workout', 'Workout::index');
 $routes->get('workout/(:num)', 'Workout::show/$1');
-$routes->get('/workout/1', 'Workout::show/1');
-$routes->post('/workout', 'Workout::create');
-$routes->put('/workout/(:id)', 'Workout::update/$1');
-$routes->delete('/workout/(:id)', 'Workout::delete/$1');
+$routes->post('workout', 'Workout::create');
+$routes->put('workout/(:id)', 'Workout::update/$1');
+$routes->delete('workout/(:id)', 'Workout::delete/$1');
 
-$routes->get('/workout-type', 'WorkoutType::index');
-$routes->get('/workout-type/(:id)', 'WorkoutType::show/$1');
-$routes->post('/workout-type', 'WorkoutType::create');
-$routes->put('/workout-type/(:id)', 'WorkoutType::update/$1');
-$routes->delete('/workout-type/(:id)', 'WorkoutType::delete/$1');
+$routes->get('workout-type', 'WorkoutType::index');
+$routes->get('workout-type/(:id)', 'WorkoutType::show/$1');
+$routes->post('workout-type', 'WorkoutType::create');
+$routes->put('workout-type/(:id)', 'WorkoutType::update/$1');
+$routes->delete('workout-type/(:id)', 'WorkoutType::delete/$1');
 
-$routes->get('/training-session', 'TrainingSession::index');
-$routes->get('/training-session/(:id)', 'TrainingSession::show/$1');
-$routes->get('/training-session/workout/(:id)', 'TrainingSession::getByWorkoutId/$1');
+$routes->get('training-session', 'TrainingSession::index');
+$routes->get('training-session/(:id)', 'TrainingSession::show/$1');
+$routes->get('training-session/workout/(:id)', 'TrainingSession::getByWorkoutId/$1');
 
-$routes->post('/training-session', 'TrainingSession::create');
-$routes->put('/training-session/(:id)', 'TrainingSession::update/$1');
-$routes->delete('/training-session/(:id)', 'TrainingSession::delete/$1');
+$routes->post('training-session', 'TrainingSession::create');
+$routes->put('training-session/(:id)', 'TrainingSession::update/$1');
+$routes->delete('training-session/(:id)', 'TrainingSession::delete/$1');
 
-$routes->get('/exercise', 'Exercise::index');
-$routes->get('/exercise/(:id)', 'Exercise::show/$1');
+$routes->get('exercise', 'Exercise::index');
+$routes->get('exercise/(:id)', 'Exercise::show/$1');
 
-$routes->post('/exercise', 'Exercise::create');
-$routes->put('/exercise/(:id)', 'Exercise::update/$1');
-$routes->delete('/exercise/(:id)', 'Exercise::delete/$1');
+$routes->post('exercise', 'Exercise::create');
+$routes->put('exercise/(:id)', 'Exercise::update/$1');
+$routes->delete('exercise/(:id)', 'Exercise::delete/$1');
 
 /*
  * --------------------------------------------------------------------
