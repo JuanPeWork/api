@@ -52,6 +52,8 @@ $routes->delete('/workout-type/(:id)', 'WorkoutType::delete/$1');
 
 $routes->get('/training-session', 'TrainingSession::index');
 $routes->get('/training-session/(:id)', 'TrainingSession::show/$1');
+$routes->get('trainingsession/workout/(:id)', 'TrainingSession::getByWorkoutId/$1');
+
 $routes->post('/training-session', 'TrainingSession::create');
 $routes->put('/training-session/(:id)', 'TrainingSession::update/$1');
 $routes->delete('/training-session/(:id)', 'TrainingSession::delete/$1');

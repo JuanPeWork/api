@@ -20,6 +20,10 @@ class ExerciseModel extends Model {
         return $this->db->table($this->table)->get()->getResult();
     }
 
+    public function getExercisesByTrainingSessionId($training_session_id) {
+        return $this->db->table($this->table)->where('training_session_id', $training_session_id)->get()->getResult();
+    }
+
     public function getExercise($id) {
         return $this->db->table($this->table)->getWhere([$this->primaryKey => $id])->getRow();
     }

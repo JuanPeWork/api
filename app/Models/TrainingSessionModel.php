@@ -16,6 +16,11 @@ class TrainingSessionModel extends Model {
         return $this->db->table($this->table)->getWhere([$this->primaryKey => $id])->getRow();
     }
 
+    public function getTrainingSessionsByWorkoutId($workout_id) {
+        return $this->db->table($this->table)->where('workout_id', $workout_id)->get()->getResult();
+    }
+    
+
     public function insertTrainingSession($data) {
         return $this->db->table($this->table)->insert($data);
     }
