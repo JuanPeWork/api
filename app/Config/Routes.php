@@ -39,6 +39,7 @@ $routes->get('/', 'Home::index');
 
 $routes->get('/workout', 'Workout::index');
 $routes->get('/workout/(:id)', 'Workout::show/$1');
+$routes->get('/workout/1', 'Workout::show/1');
 $routes->post('/workout', 'Workout::create');
 $routes->put('/workout/(:id)', 'Workout::update/$1');
 $routes->delete('/workout/(:id)', 'Workout::delete/$1');
@@ -59,8 +60,6 @@ $routes->delete('/training-session/(:id)', 'TrainingSession::delete/$1');
 
 $routes->get('/exercise', 'Exercise::index');
 $routes->get('/exercise/(:id)', 'Exercise::show/$1');
-$routes->get('/exercise/training-session/(:id)', 'Exercise::getExercisesByTrainingSessionId/$1');
-$routes->get('/exercise/training-session', 'Exercise::getExercisesByTrainingSession');
 
 $routes->post('/exercise', 'Exercise::create');
 $routes->put('/exercise/(:id)', 'Exercise::update/$1');
