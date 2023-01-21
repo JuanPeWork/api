@@ -60,6 +60,8 @@ $routes->delete('/training-session/(:id)', 'TrainingSession::delete/$1');
 $routes->get('/exercise', 'Exercise::index');
 $routes->get('/exercise/(:id)', 'Exercise::show/$1');
 $routes->get('/exercise/training-session/(:id)', 'Exercise::getExercisesByTrainingSessionId/$1');
+$routes->get('/exercise/training-session', 'Exercise::getExercisesByTrainingSession');
+
 $routes->post('/exercise', 'Exercise::create');
 $routes->put('/exercise/(:id)', 'Exercise::update/$1');
 $routes->delete('/exercise/(:id)', 'Exercise::delete/$1');

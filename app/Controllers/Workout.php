@@ -18,7 +18,6 @@ class Workout extends ResourceController
 
     public function show($id = null)
     {
-        return $this->respond($id);
         $model = new WorkoutModel();
         $data = $model->getWorkout($id);
         if ($data) {
