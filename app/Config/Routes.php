@@ -37,7 +37,7 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
-$routes->get('/workout', 'Workout::index');
+
 $routes->get('workout', 'Workout::index');
 $routes->get('/workout/(:id)', 'Workout::show/$1');
 $routes->post('workout', 'Workout::create');
