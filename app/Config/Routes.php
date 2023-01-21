@@ -38,7 +38,7 @@ $routes->set404Override();
 $routes->get('/', 'Home::index');
 
 
-$routes->get('workout', 'Workout::index');
+$routes->get('/workout', 'Workout::index');
 $routes->get('/workout/(:id)', 'Workout::show/$1');
 $routes->post('workout', 'Workout::create');
 $routes->put('workout/(:id)', 'Workout::update/$1');
