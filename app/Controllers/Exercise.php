@@ -95,12 +95,12 @@ class Exercise extends ResourceController {
         $data = $this->request->getJSON();
 
         // Verificar que los datos requeridos estén presentes
-        if (!isset($data->sets) || !isset($data->repts)) {
-            return $this->failValidationErrors('Sets and repts are required fields');
+        if (!isset($data->repts) || !isset($data->weight)) {
+            return $this->failValidationErrors('repts and weight are required fields');
         }
 
         // Actualizar solo los campos necesarios en la tabla
-        $model->updateExerciseVolume($id, $data->sets, $data->repts);
+        $model->updateExerciseVolume($id, $data->repts, $data->weight);
 
         $response = [
             'status' => 200,
