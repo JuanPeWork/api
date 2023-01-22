@@ -35,6 +35,15 @@ class ExerciseModel extends Model {
     public function updateExercise($id, $data) {
         return $this->db->table($this->table)->update($data, [$this->primaryKey => $id]);
     }
+    public function updateExerciseVolume($id, $sets, $repts) {
+        $data = [
+            'sets' => $sets,
+            'repts' => $repts
+        ];
+
+        $this->db->table($this->table)->update($data, [$this->primaryKey => $id]);
+    }
+
 
     public function deleteExercise($id) {
         return $this->db->table($this->table)->delete([$this->primaryKey => $id]);

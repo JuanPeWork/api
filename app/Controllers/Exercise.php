@@ -88,6 +88,31 @@ class Exercise extends ResourceController {
         return $this->respond($response);
     }
 
+    public function updateExerciseVolume($id = null) {
+        $model = new ExerciseModel();
+
+        // Obtener los datos enviados en el cuerpo de la petición
+        $data = $this->request->getJSON();
+
+        // Verificar que los datos requeridos estén presentes
+        if (!isset($data->sets) || !isset($data->repts)) {
+            return $this->failValidationErrors('Sets and repts are required fields');
+        }
+
+        // Actualizar solo los campos necesarios en la tabla
+        $model->updateExerciseVolume($id, $data->sets, $data->repts);
+
+        $response = [
+            'status' => 200,
+            'error' => null,
+            'messages' => [
+                'success' => 'Exercise volume updated'
+            ]
+        ];
+        return $this->respond($response);
+    }
+
+
     public function delete($id = null) {
         $model = new ExerciseModel();
         $data = $model->getExercise($id);
