@@ -21,6 +21,7 @@ $routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
+$routes->setAutoRoute(true);
 // The Auto Routing (Legacy) is very dangerous. It is easy to create vulnerable apps
 // where controller filters or CSRF protection are bypassed.
 // If you don't want to define all routes, please use the Auto Routing (Improved).
@@ -63,7 +64,7 @@ $routes->get('exercise/training-session/(:num)', 'Exercise::getExercisesByTraini
 
 $routes->post('exercise', 'Exercise::create');
 $routes->put('exercise/(:num)', 'Exercise::update/$1');
-$routes->options('exercise/volume/(:num)', 'Exercise::updateExerciseVolume/$1');
+$routes->put('exercise/volume/(:num)', 'Exercise::updateExerciseVolume/$1');
 
 $routes->delete('exercise/(:num)', 'Exercise::delete/$1');
 
