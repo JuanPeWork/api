@@ -36,6 +36,7 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
+$routes->options('/*', 'Options::index');
 
 $routes->get('workout', 'Workout::index');
 $routes->get('workout/(:num)', 'Workout::show/$1');
@@ -49,13 +50,13 @@ $routes->post('workout-type', 'WorkoutType::create');
 $routes->put('workout-type/(:num)', 'WorkoutType::update/$1');
 $routes->delete('workout-type/(:num)', 'WorkoutType::delete/$1');
 
+$routes->get('training-session', 'TrainingSession::index');
+$routes->get('training-session/(:num)', 'TrainingSession::show/$1');
+$routes->get('training-session/workout/(:num)', 'TrainingSession::getByWorkoutId/$1');
+
 $routes->post('training-session', 'TrainingSession::create');
-// $routes->get('training-session', 'TrainingSession::index');
-// $routes->get('training-session/(:num)', 'TrainingSession::show/$1');
-// $routes->get('training-session/workout/(:num)', 'TrainingSession::getByWorkoutId/$1');
-// $routes->resource('training-session');
-// $routes->put('training-session/(:num)', 'TrainingSession::update/$1');
-// $routes->delete('training-session/(:num)', 'TrainingSession::delete/$1');
+$routes->put('training-session/(:num)', 'TrainingSession::update/$1');
+$routes->delete('training-session/(:num)', 'TrainingSession::delete/$1');
 
 $routes->get('exercise', 'Exercise::index');
 $routes->get('exercise/(:num)', 'Exercise::show/$1');
@@ -64,7 +65,7 @@ $routes->get('exercise/training-session/(:num)', 'Exercise::getExercisesByTraini
 $routes->post('exercise', 'Exercise::create');
 $routes->put('exercise/(:num)', 'Exercise::update/$1');
 $routes->put('exercise/volume/(:num)', 'Exercise::updateExerciseVolume/$1');
-// $routes->options('exercise/volume/(:num)', 'Exercise::updateExerciseVolume/$1');
+
 $routes->delete('exercise/(:num)', 'Exercise::delete/$1');
 
 /*

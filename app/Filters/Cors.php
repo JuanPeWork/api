@@ -14,9 +14,7 @@ Class Cors implements FilterInterface
         header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
         $method = $_SERVER['REQUEST_METHOD'];
          if ($method == "OPTIONS") {
-            echo 'Yes';
-        } else {
-            echo 'No';
+            die();
         }
     }
  
