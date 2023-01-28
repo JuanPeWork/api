@@ -9,6 +9,6 @@ class Options extends BaseController
 {
     use ResponseTrait;
     public function index() {
-        return $this->respond('Success');
+        echo 'Success';
     }
 }
