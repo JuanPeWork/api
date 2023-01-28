@@ -3,9 +3,9 @@
 namespace App\Controllers;
 use CodeIgniter\RESTful\ResourceController;
 use CodeIgniter\API\ResponseTrait;
-use App\Models\ExerciseModel;
 
-class Options extends BaseController
+
+class Options extends ResourceController
 {
     use ResponseTrait;
     public function index() {
