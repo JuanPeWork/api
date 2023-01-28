@@ -1,13 +1,11 @@
-<?php namespace Modules\Common\Filters;
+<?php
+namespace App\Filters;
 
-use CodeIgniter\config\Services;
 use CodeIgniter\HTTP\RequestInterface;
-use CodeIgniter\HTTP\Response;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\Filters\FilterInterface;
 
-
-class CorsFilter implements FilterInterface
+Class Cors implements FilterInterface
 {
     public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)
     {
@@ -50,6 +48,4 @@ class CorsFilter implements FilterInterface
         }
 
     }
-
-
-} 
+}
