@@ -64,7 +64,7 @@ $routes->get('exercise/training-session/(:num)', 'Exercise::getExercisesByTraini
 $routes->post('exercise', 'Exercise::create');
 $routes->put('exercise/(:num)', 'Exercise::update/$1');
 $routes->put('exercise/volume/(:num)', 'Exercise::updateExerciseVolume/$1');
-$routes->options('exercise/volume/(:num)', 'Exercise::updateExerciseVolume/$1');
+// $routes->options('exercise/volume/(:num)', 'Exercise::updateExerciseVolume/$1');
 $routes->delete('exercise/(:num)', 'Exercise::delete/$1');
 
 /*
