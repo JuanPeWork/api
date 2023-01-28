@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Controllers;
+use CodeIgniter\RESTful\ResourceController;
+use CodeIgniter\API\ResponseTrait;
+use App\Models\ExerciseModel;
 
 class Options extends BaseController
 {
-    public function index()
-    {
-        $this->response->setStatusCode(200);
-        return $this->response;
+    use ResponseTrait;
+    public function index() {
+        return $this->respond('Success');
     }
 }
