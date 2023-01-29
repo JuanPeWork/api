@@ -35,7 +35,8 @@ class TrainingSession extends ResourceController {
         }
     }    
 
-    public function create() {
+    public function create()
+    {
         $model = new TrainingSessionModel();
         $json = $this->request->getJSON();
         if ($json) {
@@ -44,19 +45,23 @@ class TrainingSession extends ResourceController {
                 'day' => $json->day,
                 'name' => $json->name
             ];
-            $model->insertTrainingSession($data);
-            $response = [
-                'status'   => 201,
-                'error'    => null,
-                'messages' => [
-                    'success' => 'Data Saved'
-                ]
-            ];
         } else {
-
-            return $this->respondCreated($json, 201);
+            $input = $this->request->getRawInput();
+            $data = [
+                'workout_id' => $input['workout_id'],
+                'day' => $input['day'],
+                'name' => $input['name']
+            ];
         }
-
+        $model->insertTrainingSession($data);
+        $response = [
+            'status'   => 200,
+            'error'    => null,
+            'messages' => [
+                'success' => 'Data Created'
+            ]
+        ];
+        return $this->respond($response);
     }
 
     public function update($id = null)
