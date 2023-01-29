@@ -51,13 +51,15 @@ $routes->post('workout-type', 'WorkoutType::create');
 $routes->put('workout-type/(:num)', 'WorkoutType::update/$1');
 $routes->delete('workout-type/(:num)', 'WorkoutType::delete/$1');
 
-$routes->get('training-session', 'TrainingSession::index');
-$routes->get('training-session/(:num)', 'TrainingSession::show/$1');
-$routes->get('training-session/workout/(:num)', 'TrainingSession::getByWorkoutId/$1');
 
-$routes->post('training-session', 'TrainingSession::create');
-$routes->put('training-session/(:num)', 'TrainingSession::update/$1');
-$routes->delete('training-session/(:num)', 'TrainingSession::delete/$1');
+$routes->resource('training-session');
+//$routes->get('training-session', 'TrainingSession::index');
+//$routes->get('training-session/(:num)', 'TrainingSession::show/$1');
+//$routes->get('training-session/workout/(:num)', 'TrainingSession::getByWorkoutId/$1');
+
+//$routes->post('training-session', 'TrainingSession::create');
+//$routes->put('training-session/(:num)', 'TrainingSession::update/$1');
+//$routes->delete('training-session/(:num)', 'TrainingSession::delete/$1');
 
 $routes->get('exercise', 'Exercise::index');
 $routes->get('exercise/(:num)', 'Exercise::show/$1');
