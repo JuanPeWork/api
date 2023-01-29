@@ -35,7 +35,7 @@ class TrainingSession extends ResourceController {
         }
     }    
 
-    public function createTrainingSession()
+    public function create()
     {
         $model = new TrainingSessionModel();
         $json = $this->request->getJSON();
