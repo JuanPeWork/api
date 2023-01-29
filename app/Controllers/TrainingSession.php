@@ -5,25 +5,9 @@ namespace App\Controllers;
 use CodeIgniter\RESTful\ResourceController;
 use CodeIgniter\API\ResponseTrait;
 use App\Models\TrainingSessionModel;
-use CodeIgniter\HTTP\RequestInterface;
-use CodeIgniter\HTTP\ResponseInterface;
-use Psr\Log\LoggerInterface;
-
 
 class TrainingSession extends ResourceController {
     use ResponseTrait;
-
-    public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger) {
-        parent::initController($request, $response, $logger);
-        header('Access-Control-Allow-Origin: *');
-        header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method, Authorization");
-        header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
-        $method = $_SERVER['REQUEST_METHOD'];
-        if ($method == "OPTIONS") {
-            header("HTTP/1.1 200 OK");
-            die();
-        }
-    }
 
     public function index() {
         $model = new TrainingSessionModel();
