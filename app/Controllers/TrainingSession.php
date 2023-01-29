@@ -37,21 +37,26 @@ class TrainingSession extends ResourceController {
 
     public function create() {
         $model = new TrainingSessionModel();
-        $data = [
-            'workout_id' => $this->request->getPost('workout_id'),
-            'day' => $this->request->getPost('day'),
-            'name' => $this->request->getPost('name')
-        ];
-        $model->insertTrainingSession($data);
-        $response = [
-            'status'   => 201,
-            'error'    => null,
-            'messages' => [
-                'success' => 'Data Saved'
-            ]
-        ];
+        $json = $this->request->getJSON();
+        if ($json) {
+            $data = [
+                'workout_id' => $json->workout_id,
+                'day' => $json->day,
+                'name' => $json->name
+            ];
+            $model->insertTrainingSession($data);
+            $response = [
+                'status'   => 201,
+                'error'    => null,
+                'messages' => [
+                    'success' => 'Data Saved'
+                ]
+            ];
+        } else {
 
-        return $this->respondCreated($data, 201);
+            return $this->respondCreated($json, 201);
+        }
+
     }
 
     public function update($id = null)
