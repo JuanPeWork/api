@@ -20,6 +20,7 @@ class TrainingSession extends ResourceController {
         header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
         $method = $_SERVER['REQUEST_METHOD'];
         if ($method == "OPTIONS") {
+            header("HTTP/1.1 200 OK");
             die();
         }
     }
