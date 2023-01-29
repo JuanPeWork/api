@@ -38,7 +38,7 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
-
+$routes->options('(:any)', 'Options::index'); 
 $routes->get('workout', 'Workout::index');
 $routes->get('workout/(:num)', 'Workout::show/$1');
 $routes->post('workout', 'Workout::create');
