@@ -53,7 +53,7 @@ $routes->get('training-session', 'TrainingSession::index');
 $routes->get('training-session/(:num)', 'TrainingSession::show/$1');
 $routes->get('training-session/workout/(:num)', 'TrainingSession::getByWorkoutId/$1');
 
-$routes->post('training-session', 'TrainingSession::createTrainingSession');
+$routes->post('training-session/new', 'TrainingSession::createTrainingSession');
 $routes->put('training-session/(:num)', 'TrainingSession::update/$1');
 $routes->delete('training-session/(:num)', 'TrainingSession::delete/$1');
 
