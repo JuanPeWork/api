@@ -30,22 +30,33 @@ class Workout extends ResourceController
     public function create()
     {
         $model = new WorkoutModel();
-        $data = [
-            'user_id' => $this->request->getPost('user_id'),
-            'workout_type_id' => $this->request->getPost('workout_type_id'),
-            'name' => $this->request->getPost('name'),
-            'num_days' => $this->request->getPost('num_days')
-        ];
+        $json = $this->request->getJSON();
+        if ($json) {
+            $data = [
+                'user_id' => $json->user_id,
+                'workout_type_id' => $json->workout_type_id,
+                'name' => $json->name,
+                'num_days' => $json->num_days
+            ];
+        } else {
+            $input = $this->request->getRawInput();
+            $data = [
+                'user_id' => $input['user_id'],
+                'workout_type_id' => $input['workout_type_id'],
+                'name' => $input['name'],
+                'num_days' => $input['num_days']
+            ];
+        }
         $model->insertWorkout($data);
         $response = [
-            'status'   => 201,
+            'status'   => 200,
             'error'    => null,
             'messages' => [
-                'success' => 'Data Saved'
+                'success' => 'Data Created'
             ]
         ];
 
-        return $this->respondCreated($data, 201);
+        return $this->respond($response);
     }
 
     public function update($id = null)
