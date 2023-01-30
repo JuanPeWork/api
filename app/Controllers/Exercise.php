@@ -37,23 +37,34 @@ class Exercise extends ResourceController {
 
     public function create() {
         $model = new ExerciseModel();
-        $data = [
-            'training_session_id' => $this->request->getPost('training_session_id'),
-            'name' => $this->request->getPost('name'),
-            'sets' => $this->request->getPost('sets'),
-            'repts' => $this->request->getPost('repts'),
-            'weight' => $this->request->getPost('weight')
-        ];
+        $json = $this->request->getJSON();
+        if ($json) {
+            $data = [
+                'training_session_id' => $json->training_session_id,
+                'name' => $json->name,
+                'sets' => $json->sets,
+                'repts' => $json->repts,
+                'weight' => $json->weight
+            ];
+        } else {
+            $input = $this->request->getRawInput();
+            $data = [
+                'training_session_id' => $input['training_session_id'],
+                'name' => $input['name'],
+                'sets' => $input['sets'],
+                'repts' => $input['repts'],
+                'weight' => $input['weight']
+            ];
+        }
         $model->insertExercise($data);
         $response = [
-            'status'   => 201,
+            'status'   => 200,
             'error'    => null,
             'messages' => [
-                'success' => 'Data Saved'
+                'success' => 'Data Created'
             ]
         ];
-
-        return $this->respondCreated($data, 201);
+        return $this->respond($response);
     }
 
     public function update($id = null) {
