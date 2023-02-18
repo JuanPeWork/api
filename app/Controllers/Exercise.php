@@ -43,6 +43,7 @@ class Exercise extends ResourceController {
                 'training_session_id' => $json->training_session_id,
                 'name' => $json->name,
                 'sets' => $json->sets,
+                'max_rept' => $json->max_rept,
                 'repts' => $json->repts,
                 'weight' => $json->weight
             ];
@@ -52,6 +53,7 @@ class Exercise extends ResourceController {
                 'training_session_id' => $input['training_session_id'],
                 'name' => $input['name'],
                 'sets' => $input['sets'],
+                'max_rept' => $input['max_rept'],
                 'repts' => $input['repts'],
                 'weight' => $input['weight']
             ];
@@ -75,6 +77,7 @@ class Exercise extends ResourceController {
                 'training_session_id' => $json->training_session_id,
                 'name' => $json->name,
                 'sets' => $json->sets,
+                'max_rept' => $json->max_rept,
                 'repts' => $json->repts,
                 'weight' => $json->weight
             ];
@@ -84,6 +87,7 @@ class Exercise extends ResourceController {
                 'training_session_id' => $input['training_session_id'],
                 'name' => $input['name'],
                 'sets' => $input['sets'],
+                'max_rept' => $input['max_rept'],
                 'repts' => $input['repts'],
                 'weight' => $input['weight']
             ];
@@ -106,12 +110,12 @@ class Exercise extends ResourceController {
         $data = $this->request->getJSON();
 
         // Verificar que los datos requeridos estén presentes
-        if (!isset($data->repts) || !isset($data->weight)) {
+        if (!isset($data->max_rept) || !isset($data->repts) || !isset($data->weight)) {
             return $this->failValidationErrors('repts and weight are required fields');
         }
 
         // Actualizar solo los campos necesarios en la tabla
-        $model->updateExerciseVolume($id, $data->repts, $data->weight);
+        $model->updateExerciseVolume($id, $data->max_rept, $data->repts, $data->weight);
 
         $response = [
             'status' => 200,

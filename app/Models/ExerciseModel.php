@@ -27,8 +27,9 @@ class ExerciseModel extends Model {
     public function updateExercise($id, $data) {
         return $this->db->table($this->table)->update($data, [$this->primaryKey => $id]);
     }
-    public function updateExerciseVolume($id, $repts, $weight) {
+    public function updateExerciseVolume($id, $max_rept, $repts, $weight) {
         $data = [
+            'max_rept' => $max_rept,
             'repts' => $repts,
             'weight' => $weight
         ];
